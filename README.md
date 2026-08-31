@@ -1,7 +1,7 @@
 # OubliePas
 
-A subscription and bill tracker. It answers one question — **what am I paying
-for, and what is about to be charged?** — and then makes sure nobody has to go
+A subscription and bill tracker. It answers one question **what am I paying
+for, and what is about to be charged?** and then makes sure nobody has to go
 looking for the answer.
 
 ![Dashboard](docs/screenshots/Dashboard.png)
@@ -118,16 +118,7 @@ the built bundle calls the deployed API rather than a laptop.
 
 ---
 
-## The code
 
-| Repository | What it holds |
-|---|---|
-| [OubliePas-backend](https://github.com/AlexisIvan2000/OubliePas-backend) | The API, the daily job, the migrations |
-| [OubliePas-frontend](https://github.com/AlexisIvan2000/OubliePas-frontend) | The React client |
-
-Setup, configuration and deployment live in each repository's own README. They
-are not repeated here — a duplicated instruction is an instruction that will be
-wrong in six months.
 
 ## Status
 
