@@ -4,6 +4,11 @@ A subscription and bill tracker. It answers one question: **what am I paying
 for, and what is about to be charged?** Then it makes sure nobody has to go
 looking for the answer.
 
+The code lives in two repositories: **[OubliePas-backend](https://github.com/AlexisIvan2000/OubliePas-backend)**
+for the API, the daily job and the migrations, and
+**[OubliePas-frontend](https://github.com/AlexisIvan2000/OubliePas-frontend)** for the React client.
+Setup and deployment are documented in each one.
+
 ![Dashboard](docs/screenshots/Dashboard.png)
 
 ## Contents
@@ -15,7 +20,6 @@ looking for the answer.
 - [Decisions worth naming](#decisions-worth-naming)
 - [Tests](#tests)
 - [Status](#status)
-- [The two repositories](#the-two-repositories)
 
 ## What it does
 
@@ -274,14 +278,3 @@ the client is deployed on Vercel. French and English throughout, light and dark
 themes, each account on its own time zone, and a progressive web app that
 installs from the browser, runs in its own window and stays readable without a
 connection.
-
-## The two repositories
-
-| | |
-|---|---|
-| [OubliePas-backend](https://github.com/AlexisIvan2000/OubliePas-backend) | the API, the daily job, the migrations |
-| [OubliePas-frontend](https://github.com/AlexisIvan2000/OubliePas-frontend) | the React client |
-
-Setup, configuration and deployment live in each repository's own README. They
-are not repeated here, because a duplicated instruction is an instruction that
-will be wrong in six months.
