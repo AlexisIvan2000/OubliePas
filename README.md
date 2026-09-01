@@ -253,7 +253,7 @@ back in one go.
 
 ## Tests
 
-1,176 backend tests and 446 frontend tests. The rule is that a guard must prove
+1,176 backend tests and 449 frontend tests. The rule is that a guard must prove
 it bites: reintroduce the defect it prevents and watch a named test fail, before
 calling it a guard.
 
