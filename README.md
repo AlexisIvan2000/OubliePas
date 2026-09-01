@@ -103,6 +103,13 @@ the database.
 `{"detail": {"code", "message"}}`. The frontend switches on `code`, never on the
 message, so the wording can change language without breaking anything.
 
+**One definition of today.** Two charts on the same account at the same moment
+showed two different months: one read a summary bounded in UTC, the other
+counted in browser time. Every day boundary now derives from one clock read and
+one stored IANA zone, and a test sweeps the layers that answer someone and
+refuses a bare server-clock read. The reminder job starts from a single instant
+that each account reads in its own calendar.
+
 **Soft delete with a single door.** Deleting sets a timestamp and the daily job
 purges after 30 days. Every read goes through one of two helpers that apply the
 `deleted_at IS NULL` guard, so it cannot be forgotten in one query out of
@@ -110,11 +117,12 @@ fourteen and leak a deleted amount back into a total.
 
 ### Tests
 
-1,047 backend tests and 349 frontend tests. The rule is that a guard must prove
+1,176 backend tests and 446 frontend tests. The rule is that a guard must prove
 it bites: reintroduce the defect it prevents and watch a named test fail, before
 calling it a guard. A read-only end-to-end suite checks the live deployment —
-security headers, CORS, that the service worker is served from the root, and that
-the built bundle calls the deployed API rather than a laptop.
+security headers, CORS, that the service worker is served from the root and
+declares the `fetch` handler that makes the app installable, and that the built
+bundle calls the deployed API rather than a laptop.
 
 ---
 
@@ -124,4 +132,5 @@ the built bundle calls the deployed API rather than a laptop.
 
 Live. The API runs on Railway alongside PostgreSQL, Redis and a scheduled worker;
 the client is deployed on Vercel. French and English throughout, light and dark
-themes, and a progressive web app that can be installed on a phone.
+themes, and a progressive web app: it installs from the browser, runs in its own
+window and stays readable without a connection.
