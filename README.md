@@ -1,7 +1,7 @@
 # OubliePas
 
-A subscription and bill tracker. It answers one question **what am I paying
-for, and what is about to be charged?** and then makes sure nobody has to go
+A subscription and bill tracker. It answers one question: **what am I paying
+for, and what is about to be charged?** Then it makes sure nobody has to go
 looking for the answer.
 
 ![Dashboard](docs/screenshots/Dashboard.png)
@@ -17,8 +17,8 @@ fixed cost you owe anyway. Same shape, different meaning, and the distinction
 runs all the way down to the reminder wording.
 
 Each line carries its category, its cadence, its own reminder lead time and both
-the per-charge and yearly amounts — a $16.99 monthly line reads very differently
-as $203.88 a year.
+the per-charge and yearly amounts, because a $16.99 monthly line reads very
+differently as $203.88 a year.
 
 ![Subscriptions](docs/screenshots/Subscriptions.png)
 
@@ -30,7 +30,7 @@ result of a calculation nobody can audit. Marking one paid takes one click.
 
 ![Calendar](docs/screenshots/Calendar.png)
 
-On a phone the grid keeps its seven columns and drops the text — a day becomes a
+On a phone the grid keeps its seven columns and drops the text. A day becomes a
 square with coloured dots, and tapping it opens that day's instalments below the
 grid. Seven columns of text are unreadable at 390 px; the shape of the month is
 not.
@@ -39,7 +39,7 @@ not.
 
 Every category, not just the top five, and the two numbers that matter for a
 decision: what you are committed to per year and per month. The heaviest lines
-are ranked across both types together — rent at $8,400 a year and Netflix at
+are ranked across both types together: rent at $8,400 a year and Netflix at
 $262 belong on the same scale.
 
 ![Breakdown](docs/screenshots/Breakdown.png)
@@ -48,9 +48,9 @@ $262 belong on the same scale.
 
 ### Reminders that arrive
 
-Three families of alert, each switchable on its own — **before the due date**,
-**past due**, **trial end or cancellation notice** — over two channels, email
-and web push, plus a weekly digest every Monday.
+Three families of alert, each switchable on its own (**before the due date**,
+**past due**, **trial end or cancellation notice**), over two channels, email and
+web push, plus a weekly digest every Monday.
 
 ![Reminders](docs/screenshots/Reminders.png)
 
@@ -70,16 +70,16 @@ Two deployables from two repositories: a FastAPI service and a React SPA.
 |---|---|---|
 | Language | Python 3.13 | JavaScript |
 | Framework | FastAPI + Starlette | React 19 |
-| Build | — | Vite 8 |
-| Data | PostgreSQL, SQLAlchemy 2 (async), asyncpg | — |
-| Migrations | Alembic | — |
-| Validation | Pydantic 2 | — |
+| Build |  | Vite 8 |
+| Data | PostgreSQL, SQLAlchemy 2 (async), asyncpg |  |
+| Migrations | Alembic |  |
+| Validation | Pydantic 2 |  |
 | Auth | JWT + argon2, Google OAuth | React Router 7 |
-| Email | Resend | — |
+| Email | Resend |  |
 | Web push | py-vapid, http-ece, httpx | Service worker, Push API |
-| Storage | S3-compatible, boto3, Pillow | — |
-| Rate limiting | slowapi + Redis | — |
-| Styling | — | CSS Modules |
+| Storage | S3-compatible, boto3, Pillow |  |
+| Rate limiting | slowapi + Redis |  |
+| Styling |  | CSS Modules |
 | Tests | pytest | Vitest |
 | Hosting | Railway | Vercel |
 
@@ -90,8 +90,8 @@ No TypeScript, no Tailwind, no UI component library. The backend's
 
 **Web push without `pywebpush`.** The obvious library pulls 19 transitive
 packages and is synchronous. `py-vapid` for the signature, `http-ece` for the
-RFC 8291 encryption and `httpx` for the POST is five packages and stays async —
-no thread pool in the middle of an async job.
+RFC 8291 encryption and `httpx` for the POST is five packages and stays async,
+with no thread pool in the middle of an async job.
 
 **Migrations run at application startup**, not as a pre-deploy step. The
 platform's pre-deploy hook silently never ran, and three deployments served 500s
@@ -119,14 +119,12 @@ fourteen and leak a deleted amount back into a total.
 
 1,176 backend tests and 446 frontend tests. The rule is that a guard must prove
 it bites: reintroduce the defect it prevents and watch a named test fail, before
-calling it a guard. A read-only end-to-end suite checks the live deployment —
+calling it a guard. A read-only end-to-end suite checks the live deployment:
 security headers, CORS, that the service worker is served from the root and
 declares the `fetch` handler that makes the app installable, and that the built
 bundle calls the deployed API rather than a laptop.
 
 ---
-
-
 
 ## Status
 
