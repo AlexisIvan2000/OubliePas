@@ -70,6 +70,11 @@ web push, plus a weekly digest every Monday.
 
 ![Reminder email](docs/screenshots/reminders_email.png)
 
+![A push notification](docs/screenshots/notifications.jpg)
+
+The push notification carries the title, the line and how many days are left. It
+never carries the amount, because a locked screen is a public place.
+
 A job runs once a day. It purges what the trash has held long enough, generates
 the occurrences that entered the horizon, then sends. Each reminder is keyed on
 the instalment, the family and the channel, so it goes out exactly once, and a
